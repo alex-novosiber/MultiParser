@@ -1,0 +1,10 @@
+.idea
+Chrome/
+Driver/
+out
+lib/
+*.csv
+*.xlsx
+*.iml
+*.exe
+/logs/*
