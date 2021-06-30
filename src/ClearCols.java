@@ -1,4 +1,4 @@
-class ClearCols {
+public class ClearCols {
 
     public static void clear() {
         App.tableCol1.clear();
