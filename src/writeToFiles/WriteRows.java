@@ -2,10 +2,10 @@ package writeToFiles;
 
 import confData.ConfigRW;
 import dateAndTime.DateAndTime;
+import db.Db;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class WriteRows {
 
@@ -35,77 +35,71 @@ public class WriteRows {
     static boolean col20Use = ConfigRW.getBool("col20Use");
 
 
-    public static void write(ArrayList<String> tableCol1, ArrayList<String> tableCol2, ArrayList<String> tableCol3,
-                             ArrayList<String> tableCol4, ArrayList<String> tableCol5, ArrayList<String> tableCol6,
-                             ArrayList<String> tableCol7, ArrayList<String> tableCol8, ArrayList<String> tableCol9,
-                             ArrayList<String> tableCol10, ArrayList<String> tableCol11, ArrayList<String> tableCol12,
-                             ArrayList<String> tableCol13, ArrayList<String> tableCol14, ArrayList<String> tableCol15,
-                             ArrayList<String> tableCol16, ArrayList<String> tableCol17, ArrayList<String> tableCol18,
-                             ArrayList<String> tableCol19, ArrayList<String> tableCol20) {
+    public static void writeToCSV() {
 
         int iterator = 0;
-        for (int i = 0; i < tableCol1.size(); i++) {
+        for (int i = 0; i < Db.tableCol1.size(); i++) {
             try {
                 FileWriter writer = new FileWriter(outputFileName + currentDateAndTime + ".csv", true);
                 if (col1Use) {
-                    writer.write(tableCol1.get(iterator) + "\t");
+                    writer.write(Db.tableCol1.get(iterator) + "\t");
                 }        //  1-к      2-к
                 if (col2Use) {
-                    writer.write(tableCol2.get(iterator) + "\t");
+                    writer.write(Db.tableCol2.get(iterator) + "\t");
                 }        //  Вилюйская, 5/2
                 if (col3Use) {
-                    writer.write(tableCol3.get(iterator) + "\t");
+                    writer.write(Db.tableCol3.get(iterator) + "\t");
                 }        //  Новосибирск,
                 if (col4Use) {
-                    writer.write(tableCol4.get(iterator) + "\t");
+                    writer.write(Db.tableCol4.get(iterator) + "\t");
                 }        //  Жилой комплекс «Оазис»
                 if (col5Use) {
-                    writer.write(tableCol5.get(iterator) + "\t");
+                    writer.write(Db.tableCol5.get(iterator) + "\t");
                 }        //  105 м2
                 if (col6Use) {
-                    writer.write(tableCol6.get(iterator) + "\t");
+                    writer.write(Db.tableCol6.get(iterator) + "\t");
                 }        //  Студенческая 6 мин
                 if (col7Use) {
-                    writer.write(tableCol7.get(iterator) + "\t");
+                    writer.write(Db.tableCol7.get(iterator) + "\t");
                 }        //  Октябрьский район Ключ-Камышенское плато,
                 if (col8Use) {
-                    writer.write(tableCol8.get(iterator) + "\t");
+                    writer.write(Db.tableCol8.get(iterator) + "\t");
                 }        //  17 этаж     (из 17/25 )
                 if (col9Use) {
-                    writer.write(tableCol9.get(iterator) + "\t");
+                    writer.write(Db.tableCol9.get(iterator) + "\t");
                 }        //  25     (из 17/25 )  этажность
                 if (col10Use) {
-                    writer.write(tableCol10.get(iterator) + "\t");
+                    writer.write(Db.tableCol10.get(iterator) + "\t");
                 }      //  4 250 000
                 if (col11Use) {
-                    writer.write(tableCol11.get(iterator) + "\t");
+                    writer.write(Db.tableCol11.get(iterator) + "\t");
                 }       // 160.000 кв/м
                 if (col12Use) {
-                    writer.write(tableCol12.get(iterator) + "\t");
+                    writer.write(Db.tableCol12.get(iterator) + "\t");
                 }       // https://novosibirsk.n1.ru/view/72695399/
                 if (col13Use) {
-                    writer.write(tableCol13.get(iterator) + "\t");
+                    writer.write(Db.tableCol13.get(iterator) + "\t");
                 }       // https://novosibirsk.n1.ru/view/72695399/
                 if (col14Use) {
-                    writer.write(tableCol14.get(iterator) + "\t");
+                    writer.write(Db.tableCol14.get(iterator) + "\t");
                 }       // https://novosibirsk.n1.ru/view/72695399/
                 if (col15Use) {
-                    writer.write(tableCol15.get(iterator) + "\t");
+                    writer.write(Db.tableCol15.get(iterator) + "\t");
                 }       //  https://novosibirsk.n1.ru/view/32746788/
                 if (col16Use) {
-                    writer.write(tableCol16.get(iterator) + "\t");
+                    writer.write(Db.tableCol16.get(iterator) + "\t");
                 }
                 if (col17Use) {
-                    writer.write(tableCol17.get(iterator) + "\t");
+                    writer.write(Db.tableCol17.get(iterator) + "\t");
                 }
                 if (col18Use) {
-                    writer.write(tableCol18.get(iterator) + "\t");
+                    writer.write(Db.tableCol18.get(iterator) + "\t");
                 }
                 if (col19Use) {
-                    writer.write(tableCol19.get(iterator) + "\t");
+                    writer.write(Db.tableCol19.get(iterator) + "\t");
                 }       //
                 if (col20Use) {
-                    writer.write(tableCol20.get(iterator) + "\t");
+                    writer.write(Db.tableCol20.get(iterator) + "\t");
                 }       //
                 writer.write("\n");
                 writer.close();

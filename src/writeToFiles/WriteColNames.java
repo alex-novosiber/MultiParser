@@ -34,7 +34,7 @@ public class WriteColNames {
     static String col20Name = ConfigRW.propsMap.get("col20Name") + "\n";
 
 
-    public static void write() {
+    public static void createCsvAndWriteColNames() {
         try {
             FileWriter writer0 = new FileWriter(outputFileName + currentDateAndTime + ".csv", true);
             writeColHeaders(col1Name, col2Name, col3Name, col4Name, col5Name, col6Name, col7Name, col8Name, col9Name, col10Name, writer0);
