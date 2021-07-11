@@ -53,7 +53,6 @@ public class Db {
         tableCol18.clear();
         tableCol19.clear();
         tableCol20.clear();
-
     }
 
 
@@ -89,7 +88,6 @@ public class Db {
 //            System.out.println(" col14 in App class = " + tableCol14.size() + " " + tableCol14);
         tableCol15.addAll(JsoupMethods.getColContent("col15"));
 //            System.out.println(" col15 in App class = " + tableCol15.size() + " " + tableCol15);
-
 
     }
 

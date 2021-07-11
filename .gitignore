@@ -8,5 +8,3 @@ lib/
 *.iml
 *.exe
 /logs/*
-/src/console/
-

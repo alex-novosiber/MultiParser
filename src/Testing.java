@@ -1,18 +1,45 @@
-import java.util.Scanner;
+import java.io.IOException;
 
 public class Testing {
 
 
-    public static void main(String[] args) {
+    static String[][] arrayMatrix = new String[5][5];
+    static String ff = "0";
 
+    public static void main(String[] args) throws IOException {
 
-        Scanner scan = new Scanner(System.in);
-        String temp = scan.nextLine();
-        String[] substring = temp.split("\\s");
-        for (int i = 0; i < substring.length; i++) {
-            System.out.println(substring[i]);
-        }
+        printMatrix();
+
+        System.out.println(" fillMatrix +++++++++++++++");
+        fillMatrix();
+
+        System.out.println(" printMatrix +++++++++++++++");
+
+        printMatrix();
 
 
     }
+
+    static void printMatrix() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (null == arrayMatrix[i][j]) arrayMatrix[i][j] = "NuLl";
+                System.out.print("[" + arrayMatrix[i][j] + "]");
+            }
+            System.out.println();
+        }
+    }
+
+
+    static void fillMatrix() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                arrayMatrix[i][j] = "8";
+                System.out.print("[" + arrayMatrix[i][j] + "]");
+            }
+            System.out.println();
+        }
+    }
+
+
 }
