@@ -1,6 +1,5 @@
 .idea
 Chrome/
-Driver/
 out
 lib/
 *.csv

@@ -37,6 +37,7 @@ public class JsonReader {
         JSONObject json0 = new JSONObject(ttt);
         JSONArray aef = new JSONArray();
         aef = json0.getJSONArray("data");
+
 //        JSONObject json = readJsonFromUrl("https://reqres.in/api/users");
 //        JSONObject json = readJsonFromUrl("https://graph.facebook.com/19292868552");
         System.out.println(json0.toString());

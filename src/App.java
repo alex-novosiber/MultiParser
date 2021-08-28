@@ -3,11 +3,13 @@ import csvToXlsx.CsvToXLSX;
 import dateAndTime.DateAndTime;
 import db.Db;
 import printReadme.PrintReadme;
+import writeToFiles.TempFileWriter;
 import writeToFiles.WriteColNames;
 import writeToFiles.WriteRows;
 
 import java.io.IOException;
 
+import static JsoupStaff.JsoupMethods.document;
 import static confData.ConfigRW.addConfigToMap;
 
 
@@ -31,6 +33,12 @@ public class App {
 
         // Getting first page for searching PagesCount
         JsoupMethods.getFirstPage();
+
+//        //  TEMP write page to tempOutput.txt
+//        String hhh = JsoupMethods.document.toString();
+//        TempFileWriter.write(hhh);
+//        System.exit(0);
+
 
         // Getting quantity of founded pages
         int pagesTotal = JsoupMethods.findPagesCount();

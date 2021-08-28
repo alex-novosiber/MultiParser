@@ -297,6 +297,7 @@ public class JsoupMethods {
             tempString1 = tempString2.replaceAll(replaceFrom2, replaceTo2);
             tableCol.add(tempString1);
         }
+        System.out.println("tableCol JsoupMethods str300 "+ tableCol.size() + " " + tableCol);
         return tableCol;
     }
 
