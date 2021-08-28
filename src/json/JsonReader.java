@@ -38,8 +38,8 @@ public class JsonReader {
         JSONArray aef = new JSONArray();
         aef = json0.getJSONArray("data");
 
-//        JSONObject json = readJsonFromUrl("https://reqres.in/api/users");
-//        JSONObject json = readJsonFromUrl("https://graph.facebook.com/19292868552");
+//        JSONObject json = readJsonFromUrl("https://re.re/api/users");
+//        JSONObject json = readJsonFromUrl("https://facebook.com/19292868552");
         System.out.println(json0.toString());
         System.out.println(json0.get("page"));
         System.out.println();
