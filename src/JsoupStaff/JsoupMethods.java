@@ -27,6 +27,7 @@ public class JsoupMethods {
     static String totalAdsClassFromConfig = propsMap.get("adsFounded").toString();
     static int jsoupConnectTimeOut = Integer.parseInt(propsMap.get("jsoupConnectTimeOut").toString());
     static String divMain = propsMap.get("divMain").toString();
+
     private static String tempString;
 
     /**
@@ -127,7 +128,8 @@ public class JsoupMethods {
                 String selectScriptFromConfig = propsMap.get(colName + "SelectScript").toString();
                 String pattern1FromConfig = propsMap.get(colName + "Pattern1").toString();
                 String pattern2FromConfig = propsMap.get(colName + "Pattern2").toString();
-                tableCol = patternParseTwoPatterns(selectScriptFromConfig, pattern1FromConfig, pattern2FromConfig);
+                String ReplaceFrom1 = propsMap.get(colName + "ReplaceFrom1").toString();
+                tableCol = patternParseTwoPatterns(selectScriptFromConfig, pattern1FromConfig, pattern2FromConfig, ReplaceFrom1);
             }
             if (colMethodFromConfig.equals("patternParseOnce")) {
                 String selectScriptFromConfig = propsMap.get(colName + "SelectScript").toString();
@@ -229,7 +231,10 @@ public class JsoupMethods {
     }
 
 
-    public static ArrayList<String> patternParseTwoPatterns(String selectScript, String pattern1FromConfig, String pattern2FromConfig) {
+    public static ArrayList<String> patternParseTwoPatterns(String selectScript,
+                                                            String pattern1FromConfig,
+                                                            String pattern2FromConfig,
+                                                            String ReplaceFrom1) {
 
         tableCol.clear();
         String tempMatcherString1 = "";
@@ -244,14 +249,32 @@ public class JsoupMethods {
         Pattern pattern1 = Pattern.compile(pattern1FromConfig);
         Pattern pattern2 = Pattern.compile(pattern2FromConfig);
         Matcher matcher1 = pattern1.matcher(scriptString);
+
+        int i = 1;
+        String temp1;
+
         while (matcher1.find()) {
             tempMatcherString1 = matcher1.group();
+//    System.out.print(i +" " + tempMatcherString1 + " ");
+            i++;
             Matcher matcher2 = pattern2.matcher(tempMatcherString1);
             while (matcher2.find()) {
                 tempMatcherString2 = matcher2.group();
-                tableCol.add(tempMatcherString2);
+                temp1 = tempMatcherString2.replaceAll(ReplaceFrom1, "");
+//     System.out.println("-" + temp1);
+                tableCol.add(temp1);
+
             }
         }
+        //  todo ЗАПЛАТКА
+        if (tableCol.size() < adsPerPageLimit) {
+            int needAddToList = adsPerPageLimit - tableCol.size();
+            for (int s = 0; s < needAddToList; s++) {
+                tableCol.add("не найдено");
+            }
+        }
+
+//    System.out.println(" JsoupMethods 277 tableCol.size = " + tableCol.size());
         return tableCol;
     }
 
